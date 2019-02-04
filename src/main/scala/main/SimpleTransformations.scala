@@ -1,8 +1,6 @@
 package main
 
 import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.sql.SparkSession
-
 
 /**
   * created by nhanak on Jan, 2019.    
@@ -56,9 +54,11 @@ object SimpleTransformations extends App {
     }
   )
 
+  //create a copy of the numCombos RDD in memory on the driver program
+  val collectedArr = numCombos.collect()
+
+
   println("Combo Result is: " + comboResult)
-
-
 
   System.exit(0)
 
